@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>star pattern</title>
+    <style>
+      body{
+            background-color: rgb(184, 238, 240);
+        }
+        #box{
+            
+            background: linear-gradient(rgb(148, 228, 148), white);
+            width: 50%;
+            height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            box-shadow: 2px 4px 30px 2px black;
+        }
+        #box h1{
+            text-transform: capitalize;
+            text-align: center;
+            color: yellow;
+            text-shadow: 3px 5px 7px black;
+        }
+        #box h3{
+            text-align: center;
+            text-transform: capitalize;
+        }
+        #box input{
+        margin-left:35%;
+        padding: 6px;
+        border-radius: 20px;
+        }
+        #box button{
+            color: rgb(241, 93, 93);
+            background: rgb(184, 238, 240);
+        }
+        #box button{
+           margin-left: 2%;
+           padding: 10px;
+           border-radius: 20px;
+           border: 2px solid #CBD83E;
+        }
+        #box button:hover{
+            background-color: rgb(15, 150, 155);
+        }
+        #box button:active{
+            background-color: rgb(26, 90, 92);
+        }
+        #tableshow{
+            background-color: white;
+            margin-left: 20%;
+            margin-top: 2%;
+            height: 60%;
+            width: 60%;
+            border:2px solid red
+        }
+        #tableshow p{
+            font-size: 25px;
+            padding-left: 20px;
+            display: hidden;
+        }
+
+       #box button[id="i3"]{
+            margin-left: 80%;
+            padding: 10px;
+            font-style:italic;
+            font-weight: bold;
+            font-size: 15px;
+            display: none;
+            
+        }
+
+    </style>
+</head>
+<body onload="init()">
+    <div id="container">
+        <div id="box">
+            <h1>here we print star pattern</h1>
+            <h3>enter the number to see star pattern </h3>
+            <input type="text" id="i1" placeholder="Enter Any Number"><button onclick="star()">Get Table</button> 
+            <div id="tableshow">
+            <p id="o1"></p>
+            </div>
+            <button onclick="cl()" id="i3">clear</button>
+        </div>           <!--if we write clear() here -> cl(), it will not run -->
+    </div>
+    <script>
+        function init()
+        {
+            //input target
+        i1 = document.getElementById("i1");
+        i3 = document.getElementById("i3");
+
+         //output target
+        o1 = document.getElementById("o1");
+         
+        }
+        function star()
+        {
+          row = (i1.value)*1;
+          o1.innerHTML=" ";
+    if(row<=10)
+    {
+         for(i=1;i<=row;i++)
+        { 
+
+          for(j=row;j>=i;j--)
+          {
+            o1.innerHTML += "&nbsp;&nbsp;";
+          }
+
+          for(j=1;j<=i;j++)
+          {
+            o1.innerHTML += "* &nbsp;";
+          }
+          o1.innerHTML += "<br>";
+        }
+        o1.style.color="red";
+        i3.style.display ="block";
+    }else {
+        alert("value not grater than 10");
+    }
+        }
+
+        function cl()
+    {  
+        
+        o1.style.display="none";
+        i3.style.display ="none";
+    }
+    </script>
+</body>
+</html>
